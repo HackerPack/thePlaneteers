@@ -402,32 +402,35 @@
             <div class ="row">
                 <h1 class="page-header">Create Task</h1>
             </div>
-            <br>    
             <div class="row">
-                <form onsubmit="createTask()">Task name:
-                    <input type="text" name="taskname" value="e.g. Tutor" id="titleTask"><br>
-                    Task type:
-                    <input type="text" name="tasktype" value="e.g. Education" id="description"><br>
-                    Task Description:
+                <div class="col-md-2">
+                </div>
+                 <div class="col-md-6">   
+                <form onsubmit="createTask()"><br>
+                    <label>Task name:</label>
+                    <input type="text" name="taskname" value="e.g. Tutor" id="titleTask"><br><br>   
+                    <label>Task Description:</label>
                     <input type="text" name="taskdesc" value="e.g. 4th grader needs a maths tutor", size=40><br>
                     <br>
-                    Zip Code:
+                    <label>Zip Code:</label>
                     <input type="text" name="taskzip" id="zipcode", size=40><br>
-                    <br><br>
+                    <br><br><br>
                     <input type="submit" value="Submit">
                 </form>
+            </div>
                 <script src="../js/geoloczip.js"></script>
                 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQf4f8pMlnmHj__IkX_fKLcjRL5VtGMTE&signed_in=true&libraries=places&callback=findloc"
         async defer></script> 
                 <script src="../js/database.js"></script>
 
                 </div>
+
                
+
+
+
                 
                 </div>
-
-
-            
             <div class="panel-body">
                             
             <div class="row">
