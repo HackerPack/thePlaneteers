@@ -17,7 +17,38 @@
   </head>
   <body>
     <div id="map"></div>
+    <script src="js/r.js"></script>
+
     <script>
+    // install sdk: npm install node-bandwidth
+
+var bandwidth = require("node-bandwidth");
+bandwidth.Client.globalOptions.apiToken = "t-kmdkcs2ivvhcoowndivo6nq";
+bandwidth.Client.globalOptions.apiSecret = "5zpzwm5bbi3aihgrx2ke4o34ttytwziqoacz6eq";
+bandwidth.Client.globalOptions.userId = "u-iuf2lgg4vx2ttgrdk7jtejq";
+
+var message = {
+  from: "+19195187412",
+  to: "+19195187412",
+  text: "Test"
+};
+bandwidth.Message.create(message, function(err, msg){
+  //Traditional call back style
+  if (err) {
+    console.log(err);
+  }
+  else {
+    console.log(msg);
+  }
+});
+
+    marker = new google.maps.Marker(
+    {
+      map:map,
+      draggable:true,
+      animation: google.maps.Animation.DROP,
+      position: results[0].geometry.location
+    });
       // Note: This example requires that you consent to location sharing when
       // prompted by your browser. If you see the error "The Geolocation service
       // failed.", it means you probably did not give permission for the browser to
