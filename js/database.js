@@ -1,5 +1,6 @@
 
 function searchTask(term,keyword, callback){
+  console.log("This is search task");
   var keywords = keyword.split(" ");
   var taskRef = new Firebase(FIRE_BASE_URL+TASKS_TABLE);
   taskRef.orderByChild("Taken").equalTo("0").on("value", function(snapshot) {
@@ -68,8 +69,8 @@ function createTask(){
                 "Title" : title,
                 "Description" : description,
                 "ZipCode" : zipcode,
-                "Taken"  : 0,
-                "Finished" : 0
+                "Taken"  : "0",
+                "Finished" : "0"
          });
         sendNotifications(zipcode, title, description, true);
 }

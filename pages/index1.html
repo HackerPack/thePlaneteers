@@ -611,7 +611,38 @@ table .total td {
     <script src="../js/database.js"></script>
     <script></script>
     <script>
-    $(document).ready(function(){
+    function searchTasks()
+{
+  var keyword = document.getElementById("zipcode").value;
+  searchTask("Random", keyword, function(array){
+            $("#row12").append('<form>')
+                $("#row12").empty();
+                if(array.length<1)
+                    $("#row12").append('<tr i align=center><td class=taskId style="display: none;">'+'Table'+'</td><td>'+'Table'+'</td><td>'+'Empty'+'</td><td>'+'</td></tr>');
+            for(var i =0;i<(array.length);i++)
+            {
+                console.log(array[i].key());
+                console.log("These many");
+                /*var currentTime = new Date(Date.now());
+                    var hours = Math.abs(currentTime - array[i].val().TimeOfTweet) / 3600000;
+                    if(hours > 24){
+                        var Overdue = "Yes"
+
+                    }else{
+                        var Overdue = "No"
+                    }*/
+                $("#row12").append('<tr i align=center><td class=taskId style="display: none;">'+array[i].key()+'</td><td>'+array[i].val().Title+'</td><td>'+array[i].val().Description+'</td><td>'+array[i].val().ZipCode+'</td></tr>')
+                };
+                $('#row12').children('tr').click(function(){
+                console.log(this);
+                $("#myModal").modal('show');
+                currentid = $(this).find('.taskId').text();
+                console.log("Current ID: "+currentid); });
+            
+        });
+
+
+}
         var url = location.href;
         var vars = url.split("?");
         var disaster = vars[1];
@@ -660,33 +691,7 @@ table .total td {
             window.location.href = address;
         });
     }
-   function searchTasks()
-{
-  var keyword = document.getElementById("zipcode").value;
-  searchTask(disaster, keyword, function(array){
-            console.log("Got list hurray");
-            $('#unassigned').append(disaster);
-            $("#row12").append('<form>')
-            for(var i =0;i<(array.length);i++)
-            {
-                $("#row12").empty();
-                console.log(array[i].key());
-                console.log("These many");
-                var currentTime = new Date(Date.now());
-                    var hours = Math.abs(currentTime - array[i].val().TimeOfTweet) / 3600000;
-                    if(hours > 24){
-                        var Overdue = "Yes"
-
-                    }else{
-                        var Overdue = "No"
-                    }
-                $("#row12").append('<tr i align=center><td class=taskId style="display: none;">'+array[i].key()+'</td><td>'+array[i].val().Title+'</td><td>'+array[i].val().Description+'</td><td>'+array[i].val().ZipCode+'</td></tr>')
-                };
-            
-        });
-
-
-}
+   
 /*
    function searchTasks()
 {
@@ -848,7 +853,6 @@ table .total td {
              console.log("Number of pending");
 
              
-        });
    </script>
 </body>
 
