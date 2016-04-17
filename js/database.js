@@ -57,9 +57,10 @@ function allTasks(zipcode, callback){
   });
 }
 function createTask(){ 
-        var title = document.getElementById('title');
-        var description = document.getElementById('description');
-        var zipcode = document.getElementById('zipcode');
+        var title = document.getElementById('titleTask').value;
+        var description = document.getElementById('description').value;
+        var zipcode = document.getElementById('zipcode').value;
+        alert("This is" + title + description +  zipcode);
 
                                            //Event details from front end
         ref.child("Tasks").push({
