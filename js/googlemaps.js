@@ -1,9 +1,9 @@
 
 var startLat = null;
 var startLong = null;
+var postal_code = null;
 function displayLoc() {
-    alert(startLat);
-    alert(startLong);
+    alert(postal_code);
   }
 function initMap() {
   var origin_place_id = null;
@@ -56,9 +56,17 @@ function initMap() {
     var place = origin_autocomplete.getPlace();
     startLat = place.geometry.location.lat();
     startLong = place.geometry.location.lng();
+    console.log(place)
     if (!place.geometry) {
       window.alert("Autocomplete's returned place contains no geometry");
       return;
+    }
+    for(var i=0; i < place.address_components.length; i++){
+      var component = place.address_components[i];
+      if(component.types[0] == "postal_code")
+      {
+        postal_code =  component.long_name;
+      }
     }
     expandViewportToFitPlace(map, place);
   });
