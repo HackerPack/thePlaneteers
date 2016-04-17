@@ -14,7 +14,11 @@ function findloc() {
     if (status === google.maps.GeocoderStatus.OK) {
       var address = results[0].address_components;
       zipcode = address[address.length - 1].long_name;
+      console.log(zipcode.length);
+      if(zipcode.length==4)
+      zipcode = address[address.length - 2].long_name;
       document.getElementById("zipcode").value = zipcode;
+      console.log(zipcode.length);
       //alert(zipcode);
       //alert(zipcode);
       if (results[1]) {
