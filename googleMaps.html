@@ -64,12 +64,19 @@
 
     <script>
     // install sdk: npm install node-bandwidth
-
-var bandwidth = require("node-bandwidth");
+/*var bandwidth;
+try {
+define(['require'], function (require) {
+    bandwidth = require("node-bandwidth");
+});
 bandwidth.Client.globalOptions.apiToken = "t-kmdkcs2ivvhcoowndivo6nq";
 bandwidth.Client.globalOptions.apiSecret = "5zpzwm5bbi3aihgrx2ke4o34ttytwziqoacz6eq";
-bandwidth.Client.globalOptions.userId = "u-iuf2lgg4vx2ttgrdk7jtejq";
-
+bandwidth.Client.globalOptions.userId = "a-m7c3u3x6n7wkqchcleihcvq";
+}
+catch(e)
+{
+  console.log(e);
+}
 var message = {
   from: "+19195187412",
   to: "+19195187412",
@@ -84,14 +91,22 @@ bandwidth.Message.create(message, function(err, msg){
     console.log(msg);
   }
 });
+*/
+/*POST /v1/users/a-m7c3u3x6n7wkqchcleihcvq/messages
 
+{
+  "from": "+19195187412",
+  "to": "+19845008502",
+  "text": "Good morning, this is a test message",
+  "callbackUrl": "http://my.callback.url"
+}
     marker = new google.maps.Marker(
     {
       map:map,
       draggable:true,
       animation: google.maps.Animation.DROP,
       position: results[0].geometry.location
-    });
+    });*/
       // Note: This example requires that you consent to location sharing when
       // prompted by your browser. If you see the error "The Geolocation service
       // failed.", it means you probably did not give permission for the browser to
