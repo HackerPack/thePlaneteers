@@ -66,6 +66,7 @@ function initMap() {
       if(component.types[0] == "postal_code")
       {
         postal_code =  component.long_name;
+        console.log(postal_code);
       }
     }
     expandViewportToFitPlace(map, place);
