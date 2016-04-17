@@ -3,9 +3,9 @@ function searchTask(term,keyword, callback){
   var keywords = keyword.split(" ");
   var taskRef = new Firebase(FIRE_BASE_URL+TASKS_TABLE);
   taskRef.orderByChild("Taken").equalTo("0").on("value", function(snapshot) {
-
      var searchResult = [];
      snapshot.forEach(function(childSnapshot) {
+     console.log(childSnapshot);
 
         var temp = JSON.stringify(childSnapshot.val());
         console.log(temp);
@@ -80,6 +80,7 @@ function createTask(){
 // }
   
 function takeTask(uid, requestID, callback){
+  console.log("Taking task" + requestID)
   var taskRef = new Firebase(FIRE_BASE_URL+TASKS_TABLE+requestID);
   taskRef.update({"Taken":uid, "Overdue":"No"}, callback);
 }

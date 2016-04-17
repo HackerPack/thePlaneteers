@@ -87,7 +87,7 @@ function checkSession(){
 	console.log("Entertin");
 	console.log(authData);
 	if(authData){
-		window.location.href = "pages/index.html";
+		window.location.href = "index0.html";
 	}
 }
 
