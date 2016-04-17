@@ -60,10 +60,12 @@
   </head>
   <body>
     <div id="map"></div>
+    <script src="js/jquery.js"></script>
     <script src="js/r.js"></script>
 
     <script>
     // install sdk: npm install node-bandwidth
+<<<<<<< HEAD
 /*var bandwidth;
 try {
 define(['require'], function (require) {
@@ -100,6 +102,28 @@ bandwidth.Message.create(message, function(err, msg){
   "text": "Good morning, this is a test message",
   "callbackUrl": "http://my.callback.url"
 }
+=======
+
+//     var bandwidth = require("node_modunode-bandwidth");
+// bandwidth.Client.globalOptions.apiToken = "t-kmdkcs2ivvhcoowndivo6nq";
+// bandwidth.Client.globalOptions.apiSecret = "5zpzwm5bbi3aihgrx2ke4o34ttytwziqoacz6eq";
+// bandwidth.Client.globalOptions.userId = "u-iuf2lgg4vx2ttgrdk7jtejq";
+/*function sendMessage(){
+
+
+var data = {"from": "+19195187412",
+ "to": "+19195187412",
+ "text": "Good morning, this is a test message"}
+    $.ajax({
+        type: "GET",
+        url: "https://api.catapult.inetwork.com/v1/users/u-iuf2lgg4vx2ttgrdk7jtejq/messages",
+        headers: 
+        { "Access-Control-Allow-Origin" : true},
+        data: data
+    });
+}
+sendMessage();
+>>>>>>> ea744a1c8316429004f99fb86057ab9dfa3d7026
     marker = new google.maps.Marker(
     {
       map:map,
