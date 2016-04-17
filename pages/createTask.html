@@ -407,15 +407,16 @@
                 </div>
                  <div class="col-md-6">   
                 <form onsubmit="createTask()"><br>
-                    <label>Task name:</label>
-                    <input type="text" name="taskname" value="e.g. Tutor" id="titleTask"><br><br>   
-                    <label>Task Description:</label>
-                    <input type="text" name="taskdesc" value="e.g. 4th grader needs a maths tutor", size=40><br>
+                    <h2>Task name:</h2>
+                    <input type="text" name="taskname" value="e.g. Tutor" id="titleTask" class="form-control input-lg" ><br><br>   
+                    <h2>Task Description:</h2>
+                    <input type="text" class="form-control input-lg"  name="taskdesc" id="description" value="e.g. 4th grader needs a maths tutor", size=40><br>
                     <br>
-                    <label>Zip Code:</label>
-                    <input type="text" name="taskzip" id="zipcode", size=40><br>
-                    <br><br><br>
-                    <input type="submit" value="Submit">
+                    <h2>Zip Code:</h2>
+                    <input type="text" class="form-control input-lg"  name="taskzip" id="zipcode", size=40><br>
+                    <br><br>
+                    <input type="submit" value="Submit" class="btn btn-primary btn-lg">
+                    <!-- <input type="button" value="HomePage" class="btn btn-info btn-lg" onclick="location.href='../index0.html'"> -->
                 </form>
             </div>
                 <script src="../js/geoloczip.js"></script>

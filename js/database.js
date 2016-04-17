@@ -73,6 +73,7 @@ function createTask(){
          });
         alert("New task successfully created");
         sendNotifications(zipcode, title, description, true);
+        window.location.href = "../index0.html";
 }
 sendNotifications("27606","da","da", false);
 function sendNotifications(zipcode, title, description, flag)
