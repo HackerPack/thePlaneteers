@@ -32,9 +32,6 @@ function initMap() {
     // Browser doesn't support Geolocation
     handleLocationError(false, infoWindow, map.getCenter());
   }
-  var directionsService = new google.maps.DirectionsService;
-  var directionsDisplay = new google.maps.DirectionsRenderer;
-  directionsDisplay.setMap(map);
 
   var origin_input = document.getElementById('origin-input');
 
@@ -67,8 +64,7 @@ function initMap() {
       {
         postal_code =  component.long_name;
         console.log(postal_code);
-      }
     }
     expandViewportToFitPlace(map, place);
-  });
+  };
 }
