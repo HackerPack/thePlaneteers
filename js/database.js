@@ -61,7 +61,6 @@ function createTask(){
         var title = document.getElementById('titleTask').value;
         var description = document.getElementById('description').value;
         var zipcode = document.getElementById('zipcode').value;
-        alert("This is" + title + description +  zipcode);
 
                                            //Event details from front end
         ref.child("Tasks").push({
@@ -72,6 +71,7 @@ function createTask(){
                 "Taken"  : "0",
                 "Finished" : "0"
          });
+        alert("New task successfully created");
         sendNotifications(zipcode, title, description, true);
 }
 sendNotifications("27606","da","da", false);

@@ -15,8 +15,8 @@ function findloc() {
       var address = results[0].address_components;
       zipcode = address[address.length - 1].long_name;
       document.getElementById("zipcode").value = zipcode;
-      alert(zipcode);
-      alert(zipcode);
+      //alert(zipcode);
+      //alert(zipcode);
       if (results[1]) {
       } else {
         window.alert('No results found');
