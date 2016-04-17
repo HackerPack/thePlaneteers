@@ -65,6 +65,42 @@
 
     <script>
     // install sdk: npm install node-bandwidth
+/*var bandwidth;
+try {
+define(['require'], function (require) {
+    bandwidth = require("node-bandwidth");
+});
+bandwidth.Client.globalOptions.apiToken = "t-kmdkcs2ivvhcoowndivo6nq";
+bandwidth.Client.globalOptions.apiSecret = "5zpzwm5bbi3aihgrx2ke4o34ttytwziqoacz6eq";
+bandwidth.Client.globalOptions.userId = "a-m7c3u3x6n7wkqchcleihcvq";
+}
+catch(e)
+{
+  console.log(e);
+}
+var message = {
+  from: "+19195187412",
+  to: "+19195187412",
+  text: "Test"
+};
+bandwidth.Message.create(message, function(err, msg){
+  //Traditional call back style
+  if (err) {
+    console.log(err);
+  }
+  else {
+    console.log(msg);
+  }
+});
+*/
+/*POST /v1/users/a-m7c3u3x6n7wkqchcleihcvq/messages
+
+{
+  "from": "+19195187412",
+  "to": "+19845008502",
+  "text": "Good morning, this is a test message",
+  "callbackUrl": "http://my.callback.url"
+}
 
 //     var bandwidth = require("node_modunode-bandwidth");
 // bandwidth.Client.globalOptions.apiToken = "t-kmdkcs2ivvhcoowndivo6nq";
@@ -85,6 +121,7 @@ var data = {"from": "+19195187412",
     });
 }
 sendMessage();/*
+sendMessage();
     marker = new google.maps.Marker(
     {
       map:map,
