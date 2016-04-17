@@ -133,6 +133,34 @@ sendMessage();
       // prompted by your browser. If you see the error "The Geolocation service
       // failed.", it means you probably did not give permission for the browser to
       // locate you.
+
+$( document ).ready(function() {
+
+var username = "t-kmdkcs2ivvhcoowndivo6nq";
+var password = "5zpzwm5bbi3aihgrx2ke4o34ttytwziqoacz6eq";
+var userid = "u-iuf2lgg4vx2ttgrdk7jtejq";
+var from = "+17473343798";
+var to = "+19195187412";
+
+function make_base_auth(user, password) {
+ var tok = user + ':' + password;
+ var hash = btoa(tok);
+ return "Basic " + hash;
+}
+
+var data = { "from": from,
+            "to": to,
+            "text": "Good morning, this is a test message"}
+  $.ajax({
+    type: 'POST',
+    headers: {"Authorization": make_base_auth(username, password),
+        "Content-Type": "application/json" },    
+       url: "https://api.catapult.inetwork.com/v1/users/" + userid + "/messages",
+       crossDomain:true,
+       data: JSON.stringify(data),
+    async: false,
+  });
+});
       </script>
 </head>
     <input id="origin-input" class="controls" type="text"
