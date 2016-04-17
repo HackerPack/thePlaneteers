@@ -70,21 +70,21 @@
 // bandwidth.Client.globalOptions.apiToken = "t-kmdkcs2ivvhcoowndivo6nq";
 // bandwidth.Client.globalOptions.apiSecret = "5zpzwm5bbi3aihgrx2ke4o34ttytwziqoacz6eq";
 // bandwidth.Client.globalOptions.userId = "u-iuf2lgg4vx2ttgrdk7jtejq";
-/*function sendMessage(){
+function sendMessage(){
 
 
 var data = {"from": "+19195187412",
  "to": "+19195187412",
  "text": "Good morning, this is a test message"}
     $.ajax({
-        type: "GET",
+        type: "POST",
         url: "https://api.catapult.inetwork.com/v1/users/u-iuf2lgg4vx2ttgrdk7jtejq/messages",
-        headers: 
-        { "Access-Control-Allow-Origin" : true},
+        dataType : 'jsonp',   
+        crossDomain:true,
         data: data
     });
 }
-sendMessage();
+sendMessage();/*
     marker = new google.maps.Marker(
     {
       map:map,

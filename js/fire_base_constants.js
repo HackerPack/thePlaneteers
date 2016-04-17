@@ -1,5 +1,5 @@
 var FIRE_BASE_URL = "https://theplaneteers.firebaseio.com/";
-var TASKS_TABLE = "tasks/";
+var TASKS_TABLE = "Tasks/";
 var HASHTAGS_TABLE = "twitterhashtags/";
 var USERS_TABLE = "users/";
 var ref = new Firebase(FIRE_BASE_URL);
