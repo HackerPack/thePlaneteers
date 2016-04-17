@@ -1,0 +1,6 @@
+{
+  "name": "Syncano social auth examples",
+  "description": "A sample app showing how to use Syncano with hellojs to implement twitte social auth",
+  "repository": "https://github.com/Syncano/social-auth-examples",
+  "keywords": ["node", "twitter", "socialAuth", "hellojs", "syncano", "express"]
+}

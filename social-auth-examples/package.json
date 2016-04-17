@@ -1,0 +1,29 @@
+{
+  "name": "syncano-social-auth-examples",
+  "version": "0.0.1",
+  "description": "A sample app showing how to use Syncano with hello.js to implement twitter social auth",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "ejs": "2.3.3",
+    "express": "4.13.3"
+  },
+  "engines": {
+    "node": "4.3.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Syncano/social-auth-examples"
+  },
+  "keywords": [
+    "node",
+    "twitter",
+    "socialAuth",
+    "hellojs",
+    "syncano",
+    "express"
+  ],
+  "license": "MIT"
+}
