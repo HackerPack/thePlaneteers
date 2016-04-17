@@ -71,6 +71,48 @@ function createTask(){
                 "Taken"  : 0,
                 "Finished" : 0
          });
+        sendNotifications(zipcode, title, description, true);
+}
+sendNotifications("27606","da","da", false);
+function sendNotifications(zipcode, title, description, flag)
+{
+  console.log("sending notifications" + zipcode);
+  var notification = new Firebase(FIRE_BASE_URL+ "notification/");
+  notification.orderByChild("zipcode").equalTo(zipcode).on("value", function(snapshot) {
+    snapshot.forEach(function(data){
+      console.log(data.val().phoneNumber);
+      if(flag)
+      sendMessageNewTask(data.val().phoneNumber, title, description);
+    });
+  });
+}
+function sendMessageNewTask(phoneNumber, title, description) {
+  console.log(phoneNumber);
+
+var username = "t-kmdkcs2ivvhcoowndivo6nq";
+var password = "5zpzwm5bbi3aihgrx2ke4o34ttytwziqoacz6eq";
+var userid = "u-iuf2lgg4vx2ttgrdk7jtejq";
+var from = "+17473343798";
+var to = phoneNumber;
+
+function make_base_auth(user, password) {
+ var tok = user + ':' + password;
+ var hash = btoa(tok);
+ return "Basic " + hash;
+}
+
+var data = { "from": from,
+            "to": to,
+            "text": "Help. Title: " + title + " Dsc: " + description }
+  $.ajax({
+    type: 'POST',
+    headers: {"Authorization": make_base_auth(username, password),
+        "Content-Type": "application/json" },    
+       url: "https://api.catapult.inetwork.com/v1/users/" + userid + "/messages",
+       crossDomain:true,
+       data: JSON.stringify(data),
+    async: false,
+  });
 }
 // function saveTask(task, callback){
 //   ref.child("Tasks").push(task);

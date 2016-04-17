@@ -54,6 +54,15 @@ function loginFB(){
   		remember: "sessionOnly"
 	});
 }
+function notifications()
+{
+	var phonenumber = document.getElementById('phoneNumber').value;
+        var zipcode = document.getElementById('zipcode').value;
+	ref.child("notification").child(ref.getAuth().uid).set({
+			"phoneNumber": phonenumber,
+			"zipcode":zipcode
+	    });
+}
 function loginTwitter(){
 
 	ref.authWithOAuthPopup("twitter", function(error, authData) {

@@ -56,7 +56,15 @@
                   <div class="col-lg-4 col-lg-offset-4">
                     <button type="button" class="btn btn-primary btn-lg" onclick="getTask()"><b>volunteer for task</b></button>
                   </div>
-                </div>
+                </div><br><br>
+                <div class="form-group">
+              <form onsubmit="notifications()"><label>Phone Number:</label>
+                    <input type="text"  placeholder="+19998887777" id="phoneNumber" class="form-control"><br>
+                    <label>ZipCode:</label>
+                    <input type="text" id="zipcode" class="form-control"><br>
+                    <input type="submit" value="Submit">
+                </form>                 
+            </div>
             </div>
         </div>
     </header>
@@ -70,13 +78,17 @@
    <script src="https://cdn.firebase.com/js/client/2.3.1/firebase.js"></script>
    <script src="js/fire_base_constants.js"></script>
    <script src="js/login.js"></script>
+   <script src="../js/geoloczip.js"></script>
+                <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQf4f8pMlnmHj__IkX_fKLcjRL5VtGMTE&signed_in=true&libraries=places&callback=findloc"
+        async defer></script> 
    <script>
    
    function submitTask(){
     window.location.href="pages/createTask.html";
    }
    function getTask(){
-    window.location.href="pages/index1.html";
+    zipcode=document.getElementById("zipcode").value;
+    window.location.href="pages/index1.html?"+zipcode;
    }
    </script>
 

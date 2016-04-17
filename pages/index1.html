@@ -502,7 +502,7 @@ table .total td {
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                             <div class="input-group col-md-12">
-                                <input type="text" class="form-control input-lg" placeholder="Search" id="searchKeywords"/>
+                                <input type="text" class="form-control input-lg" placeholder="Search" id="zipcode"/>
                                 <span class="input-group-btn">
                                     <button class="btn btn-info btn-lg" type="button" onclick="searchTasks()">
                                         <i class="glyphicon glyphicon-search"></i>
@@ -607,12 +607,17 @@ table .total td {
     <script src="https://cdn.firebase.com/js/client/2.3.1/firebase.js"></script>
    <script src="../js/fire_base_constants.js"></script>
    <script src="../js/login.js"></script>
+   
     <script src="../js/database.js"></script>
     <script></script>
     <script>
+    $(document).ready(function(){
+        var url = location.href;
+        var vars = url.split("?");
+        var disaster = vars[1];
+        console.log("peele");
      var currentid;
-     var disaster = window.location.search.substring(1).toLowerCase();
-     
+     //var disaster=document.getElementById("zipcode").value;
     function octaketask(){
         console.log("Inside octaketask");
         /*getId(function(uid){
@@ -657,7 +662,7 @@ table .total td {
     }
    function searchTasks()
 {
-  var keyword = document.getElementById("searchKeywords").value;
+  var keyword = document.getElementById("zipcode").value;
   searchTask(disaster, keyword, function(array){
             console.log("Got list hurray");
             $('#unassigned').append(disaster);
@@ -682,10 +687,10 @@ table .total td {
 
 
 }
-
+/*
    function searchTasks()
 {
-  var keyword = document.getElementById("searchKeywords").value;
+  var keyword = document.getElementById("zipcode").value;
   searchTask(disaster, keyword, function(array){
             console.log("Got list");
 
@@ -721,14 +726,12 @@ table .total td {
         });
 
 
-}
-
-    $(document).ready(function(){
+}*/
         $("#disasterName").html('#'+disaster);
         var pendingTasks = 0;
         var completedTasks = 0;
         var overdueTasks = 0;
-        allTasks(disaster,function(array){
+        searchTask("task",disaster,function(array){
             console.log("Got list");
             $("#row12").append('<form>')
             for(var i =0;i<(array.length);i++)

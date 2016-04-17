@@ -1,5 +1,7 @@
-var pos = null
+var pos = null;
+var zipcode;
 function findloc() {
+  console.log("Inside findloc");
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
       pos = {
@@ -11,7 +13,9 @@ function findloc() {
       geocoder.geocode({'location': pos}, function(results, status) {
     if (status === google.maps.GeocoderStatus.OK) {
       var address = results[0].address_components;
-      var zipcode = address[address.length - 1].long_name;
+      zipcode = address[address.length - 1].long_name;
+      document.getElementById("zipcode").value = zipcode;
+      alert(zipcode);
       alert(zipcode);
       if (results[1]) {
       } else {
