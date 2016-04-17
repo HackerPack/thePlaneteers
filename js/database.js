@@ -33,15 +33,15 @@ function searchTask(term,keyword, callback){
       callback(searchResult);
   });
 }
-function allTasks(disaster, callback){
+function allTasks(zipcode, callback){
   var taskRef = new Firebase(FIRE_BASE_URL+TASKS_TABLE);
   taskRef.orderByChild("Taken").equalTo("0").on("value", function(snapshot) {
 
      var searchResult = [];
      snapshot.forEach(function(childSnapshot) {
         var temp = JSON.stringify(childSnapshot.val());
-        if(disaster){
-          var n = temp.search(disaster);
+        if(zipcode){
+          var n = temp.search(zipcode);
           if(n>-1){
             searchResult.push(childSnapshot);
 
@@ -56,14 +56,28 @@ function allTasks(disaster, callback){
       callback(searchResult);
   });
 }
+function createTask(){ 
+        var title = document.getElementById('title');
+        var description = document.getElementById('description');
+        var zipcode = document.getElementById('zipcode');
 
-function saveTask(task, callback){
-  ref.child("Tasks").push(task);
-  var taskRef = new Firebase(FIRE_BASE_URL+TASKS_TABLE);
-  task.forEach(function(object){
-    taskRef.update(object, callback);
-  });
+                                           //Event details from front end
+        ref.child("Tasks").push({
+                "UID" : ref.getAuth().uid,
+                "Title" : title,
+                "Description" : description,
+                "ZipCode" : zipcode,
+                "Taken"  : 0,
+                "Finished" : 0
+         });
 }
+// function saveTask(task, callback){
+//   ref.child("Tasks").push(task);
+//   var taskRef = new Firebase(FIRE_BASE_URL+TASKS_TABLE);
+//   task.forEach(function(object){
+//     taskRef.update(object, callback);
+//   });
+// }
   
 function takeTask(uid, requestID, callback){
   var taskRef = new Firebase(FIRE_BASE_URL+TASKS_TABLE+requestID);
@@ -112,8 +126,6 @@ function completeTask(uid, requestID, callback){
 }
 */
 
-
-
 function getMyTasks(uid, callback){
   var return_data = [];
   var taskRef = new Firebase(FIRE_BASE_URL+TASKS_TABLE);
@@ -149,82 +161,26 @@ userRef.once('value', function(data) {
 	});
 }
 
+// function getAllTasks(callback){
+//   var taskRef = new Firebase(FIRE_BASE_URL+TASKS_TABLE);
+//   taskRef.orderByChild("Priority").on("value", function(snapshot) {
 
-getUser('facebook:10153182851271621', function(data){
-    data.forEach(function(innerData){
-        //console.log(innerData.fname);
-    });
-});
+//      var searchResult = [];
+//      snapshot.forEach(function(childSnapshot) {
+//         var temp = JSON.stringify(childSnapshot.val());
+//         if(disaster){
+//           var n = temp.search(disaster);
+//           if(n>-1){
+//             searchResult.push(childSnapshot);
 
-function getTwitterWidget(hashtag, callback){
-  //alert("Fetching widget details");
-  var twitterRef = new Firebase(FIRE_BASE_URL+HASHTAGS_TABLE+hashtag);
-  var searchResult = [];
+//           }
+//         }
+//         else{
+//          searchResult.push(childSnapshot);
+//         }
+//       });
+//      console.log(searchResult);
 
-  //twitterRef.orderByKey().equalTo(hashtag).on("value", function(snapshot) {
-    twitterRef.once('value', function(data){
-      console.log(hashtag);
-      console.log(data.val());
-      searchResult.push(data.val());
-     //callback(searchResult);
-     /*snapshot.forEach(function(childSnapshot) {
-        var temp = JSON.stringify(childSnapshot.val());
-        if(hashtag){
-          var n = temp.search(hashtag);
-          if(n>-1){
-            searchResult.push(childSnapshot.val());
-          }
-        }
-        else{
-         searchResult.push(childSnapshot.val());
-        }
-      });*/
-     //console.log(searchResult);
-          //alert(searchResult);
-     callback(searchResult);
-     return searchResult
-  });  
-}
-
-function getDisasters(hashtag, callback){
-  var disRef = new Firebase(FIRE_BASE_URL+HASHTAGS_TABLE);
-  disRef.orderByChild("hashtag").on("value", function(snapshot){
-    var searchResult = [];
-    snapshot.forEach(function(childSnapshot){
-      var temp = JSON.stringify(childSnapshot.val());
-      if (hashtag){
-        var n = temp.search(hashtag);
-        if (n>-1){
-          searchResult.push(childSnapshot.val());
-        }
-      } else {
-        searchResult.push(childSnapshot.val());
-      }
-    });
-    callback(searchResult);
-  });
-}
-
-function getAllTasks(callback){
-  var taskRef = new Firebase(FIRE_BASE_URL+TASKS_TABLE);
-  taskRef.orderByChild("Priority").on("value", function(snapshot) {
-
-     var searchResult = [];
-     snapshot.forEach(function(childSnapshot) {
-        var temp = JSON.stringify(childSnapshot.val());
-        if(disaster){
-          var n = temp.search(disaster);
-          if(n>-1){
-            searchResult.push(childSnapshot);
-
-          }
-        }
-        else{
-         searchResult.push(childSnapshot);
-        }
-      });
-     console.log(searchResult);
-
-      callback(searchResult);
-  });
-}
+//       callback(searchResult);
+//   });
+// }
